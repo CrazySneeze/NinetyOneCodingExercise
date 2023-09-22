@@ -1,58 +1,7 @@
-﻿using System;
-using System.IO;
-using System.Linq;
+﻿
 
 namespace SpreadSheetReader
 {
-    class SpreadSheet
-    {
-        public List<string[]> Sheet;
-
-        public string[] GetColumn(int colNum)
-        {
-            return Sheet[colNum];
-        }
-
-        public string[] GetRow (int rowNum)
-        {
-            List<string> strings = new List<string>();
-            foreach(var i in Sheet)
-            {
-                try
-                {
-                    strings.Add(i[rowNum]);
-                }
-                catch 
-                {
-                    strings.Add(string.Empty);
-                }
-            }
-            return strings.ToArray();
-        }
-
-        public SpreadSheet(string directory)
-        {
-            Sheet = new List<string[]>();
-            string line;
-            try
-            {
-                StreamReader sr = new StreamReader(directory);
-                line = sr.ReadLine();
-                string[] row;
-                while (line != null)
-                {
-                    row = line.Split(',');
-                    Sheet.Add(row);
-                    line = sr.ReadLine();
-                }
-
-                sr.Close();
-
-            }
-            catch(Exception e) { Console.WriteLine("Exception: " + e.Message); }
-        }
-    }
-
     class Program
     {
         static void Main(string[] args)
@@ -68,69 +17,39 @@ namespace SpreadSheetReader
                 Directory = Console.ReadLine();
             }
 
-            var watch = new System.Diagnostics.Stopwatch();
-
-            watch.Start();
-
-            for (int i = 0; i < 10000; i++)
+            SpreadSheet sheet = new SpreadSheet(Directory);
+            if (sheet.Sheet.Count > 0)
             {
-                SpreadSheet sheet = new SpreadSheet(Directory);
-                if (sheet.Sheet.Count > 0)
-                {
-                    getHighestScore(sheet);
-                }
+                getHighestScore(sheet);
             }
-
-            watch.Stop();
-
-            Console.WriteLine(watch.Elapsed/10000);
         }
 
         public static void getHighestScore(SpreadSheet sheet)
         {
-            int scoreIndex = -1;
+            int scoreIndex;
+            int topScore;
 
-            for(int i = 0; i < sheet.Sheet[0].Length; i++)
-            {
-                if (sheet.Sheet[0][i] == "Score")
+            if (sheet.findRow("Score", out scoreIndex)) 
+            { 
+                List<int> topScoresIndex = sheet.getMax(scoreIndex, out topScore);
+                if (topScoresIndex.Count > 0)
                 {
-                    scoreIndex = i;
-                    break;
-                }
-            }
+                    List<string> topScoreNames = new List<string>();
 
-            if (scoreIndex == -1) { return; }
-
-            int topScore = -1;
-
-            List<string> topScoreNames = new List<string> {};
-
-            foreach(var i in sheet.Sheet)
-            {
-                int currentScore;
-                if (int.TryParse(i[scoreIndex], out currentScore))
-                {
-                    if (currentScore > topScore)
+                    foreach (int i in topScoresIndex)
                     {
-                        topScoreNames = new List<string> { $"{i[0]} {i[1]}" };
-                        topScore = currentScore;
+                        topScoreNames.Add($"{sheet.Sheet[i][0]} {sheet.Sheet[i][1]}");
                     }
-                    else if (currentScore == topScore) 
-                    {
-                        topScoreNames.Add($"{i[0]} {i[1]}");
-                    }
+                    outputTopScorers(topScoreNames, topScore);
                 }
-            }
-
-            if (topScoreNames.Count > 0) 
-            {
-                //outputTopScorers(topScoreNames, topScore);
             }
         }
 
-        public static void outputTopScorers(List<string> topScoreNames, int topScore)
+        public static void outputTopScorers(List<string> topScores, int topScore)
         {
-            foreach(var i in topScoreNames)
+            topScores.Sort();
+
+            foreach(var i in topScores)
             {
                 Console.WriteLine(i);
             }
