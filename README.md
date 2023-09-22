@@ -11,3 +11,5 @@ Once we have the row we need to look at we can then itterate through all element
 To run this you can either run the program with the file you wish to see parsed or simply run it an write the path for the file you wish to parsed.
 
 # The program running
+
+![Screenshot 2023-09-22 123206](https://github.com/CrazySneeze/NinetyOneCodingExercise/assets/72107671/0dc8856e-cb81-4f89-b2b4-89b01244f437)
