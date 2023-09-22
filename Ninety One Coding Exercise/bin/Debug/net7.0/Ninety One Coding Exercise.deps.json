@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "Ninety One Coding Exercise/1.0.0": {
+        "runtime": {
+          "Ninety One Coding Exercise.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Ninety One Coding Exercise/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

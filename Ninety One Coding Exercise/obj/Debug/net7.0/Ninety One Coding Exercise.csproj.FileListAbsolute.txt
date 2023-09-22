@@ -1,0 +1,14 @@
+C:\Users\ste.king\source\repos\Ninety One Coding Exercise\Ninety One Coding Exercise\bin\Debug\net7.0\Ninety One Coding Exercise.exe
+C:\Users\ste.king\source\repos\Ninety One Coding Exercise\Ninety One Coding Exercise\bin\Debug\net7.0\Ninety One Coding Exercise.deps.json
+C:\Users\ste.king\source\repos\Ninety One Coding Exercise\Ninety One Coding Exercise\bin\Debug\net7.0\Ninety One Coding Exercise.runtimeconfig.json
+C:\Users\ste.king\source\repos\Ninety One Coding Exercise\Ninety One Coding Exercise\bin\Debug\net7.0\Ninety One Coding Exercise.dll
+C:\Users\ste.king\source\repos\Ninety One Coding Exercise\Ninety One Coding Exercise\bin\Debug\net7.0\Ninety One Coding Exercise.pdb
+C:\Users\ste.king\source\repos\Ninety One Coding Exercise\Ninety One Coding Exercise\obj\Debug\net7.0\Ninety One Coding Exercise.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ste.king\source\repos\Ninety One Coding Exercise\Ninety One Coding Exercise\obj\Debug\net7.0\Ninety One Coding Exercise.AssemblyInfoInputs.cache
+C:\Users\ste.king\source\repos\Ninety One Coding Exercise\Ninety One Coding Exercise\obj\Debug\net7.0\Ninety One Coding Exercise.AssemblyInfo.cs
+C:\Users\ste.king\source\repos\Ninety One Coding Exercise\Ninety One Coding Exercise\obj\Debug\net7.0\Ninety One Coding Exercise.csproj.CoreCompileInputs.cache
+C:\Users\ste.king\source\repos\Ninety One Coding Exercise\Ninety One Coding Exercise\obj\Debug\net7.0\Ninety One Coding Exercise.dll
+C:\Users\ste.king\source\repos\Ninety One Coding Exercise\Ninety One Coding Exercise\obj\Debug\net7.0\refint\Ninety One Coding Exercise.dll
+C:\Users\ste.king\source\repos\Ninety One Coding Exercise\Ninety One Coding Exercise\obj\Debug\net7.0\Ninety One Coding Exercise.pdb
+C:\Users\ste.king\source\repos\Ninety One Coding Exercise\Ninety One Coding Exercise\obj\Debug\net7.0\Ninety One Coding Exercise.genruntimeconfig.cache
+C:\Users\ste.king\source\repos\Ninety One Coding Exercise\Ninety One Coding Exercise\obj\Debug\net7.0\ref\Ninety One Coding Exercise.dll
