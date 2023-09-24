@@ -7,8 +7,11 @@ Once we have the row we need to look at we can then iterate through all elements
 
 SOme potential ideas I had to better improve the program were adding a better input reading system. Given that the csv fields could contain any number of things including a ',' I need to find a way to distinguish between the comman used to seperate entries and those that are within an entry.
 
+# What could be added in future
+A way to do this would be that instead of using split we iterate through each character when reading a line and check for what character comes first. If a comman has not had a special character before hand it will be treated as a seperator of entries however if the comman is within speach marks it is part of a entry and so will be ignored. This character by char acter approach can also allow for special characters to be used or even certain kinds of conditional formatting.
+
 # How to run the program
-To run this you can either run the program with the file you wish to see parsed or simply run it an write the path for the file you wish to parsed. A way to do this would be that instead of using split we iterate through each character when reading a line and check for what character comes first. If a comman has not had a special character before hand it will be treated as a seperator of entries however if the comman is within speach marks it is part of a entry and so will be ignored. This character by char acter approach can also allow for special characters to be used or even certain kinds of conditional formatting.
+This github contains a compiled version of the program within the debug folder however a version of the program can also be compiled by openeing the sln with visual studio and then compiling the code. You can then run the program with the file you wish to see parsed or simply run it an write the path for the file you wish to parsed. 
 
 # The program running
 
