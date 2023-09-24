@@ -10,4 +10,12 @@ To run this you can either run the program with the file you wish to see parsed 
 
 # The program running
 
+Using the test data provided the output is:
 ![Screenshot 2023-09-22 123206](https://github.com/CrazySneeze/NinetyOneCodingExercise/assets/72107671/0dc8856e-cb81-4f89-b2b4-89b01244f437)
+
+Using some additional data I have placed in the sheet as seen here:
+![image](https://github.com/CrazySneeze/NinetyOneCodingExercise/assets/72107671/790cc302-ee8d-4765-a9ac-a42351e858ab)
+
+The output result is:
+![image](https://github.com/CrazySneeze/NinetyOneCodingExercise/assets/72107671/6d9db1d1-5c72-4acc-a3b4-91e505817099)
+
