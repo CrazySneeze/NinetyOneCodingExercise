@@ -26,3 +26,18 @@ C:\Users\ste.king\OneDrive - Reply\Documents\GitHub\NinetyOneCodingExercise\Nine
 C:\Users\ste.king\OneDrive - Reply\Documents\GitHub\NinetyOneCodingExercise\Ninety One Coding Exercise\obj\Debug\net7.0\Ninety One Coding Exercise.pdb
 C:\Users\ste.king\OneDrive - Reply\Documents\GitHub\NinetyOneCodingExercise\Ninety One Coding Exercise\obj\Debug\net7.0\Ninety One Coding Exercise.genruntimeconfig.cache
 C:\Users\ste.king\OneDrive - Reply\Documents\GitHub\NinetyOneCodingExercise\Ninety One Coding Exercise\obj\Debug\net7.0\ref\Ninety One Coding Exercise.dll
+C:\Users\Nauti\Documents\NinetyOneCodingExercise\Ninety One Coding Exercise\bin\Debug\net7.0\Ninety One Coding Exercise.exe
+C:\Users\Nauti\Documents\NinetyOneCodingExercise\Ninety One Coding Exercise\bin\Debug\net7.0\Ninety One Coding Exercise.deps.json
+C:\Users\Nauti\Documents\NinetyOneCodingExercise\Ninety One Coding Exercise\bin\Debug\net7.0\Ninety One Coding Exercise.runtimeconfig.json
+C:\Users\Nauti\Documents\NinetyOneCodingExercise\Ninety One Coding Exercise\bin\Debug\net7.0\Ninety One Coding Exercise.dll
+C:\Users\Nauti\Documents\NinetyOneCodingExercise\Ninety One Coding Exercise\bin\Debug\net7.0\Ninety One Coding Exercise.pdb
+C:\Users\Nauti\Documents\NinetyOneCodingExercise\Ninety One Coding Exercise\obj\Debug\net7.0\Ninety One Coding Exercise.csproj.AssemblyReference.cache
+C:\Users\Nauti\Documents\NinetyOneCodingExercise\Ninety One Coding Exercise\obj\Debug\net7.0\Ninety One Coding Exercise.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nauti\Documents\NinetyOneCodingExercise\Ninety One Coding Exercise\obj\Debug\net7.0\Ninety One Coding Exercise.AssemblyInfoInputs.cache
+C:\Users\Nauti\Documents\NinetyOneCodingExercise\Ninety One Coding Exercise\obj\Debug\net7.0\Ninety One Coding Exercise.AssemblyInfo.cs
+C:\Users\Nauti\Documents\NinetyOneCodingExercise\Ninety One Coding Exercise\obj\Debug\net7.0\Ninety One Coding Exercise.csproj.CoreCompileInputs.cache
+C:\Users\Nauti\Documents\NinetyOneCodingExercise\Ninety One Coding Exercise\obj\Debug\net7.0\Ninety One Coding Exercise.dll
+C:\Users\Nauti\Documents\NinetyOneCodingExercise\Ninety One Coding Exercise\obj\Debug\net7.0\refint\Ninety One Coding Exercise.dll
+C:\Users\Nauti\Documents\NinetyOneCodingExercise\Ninety One Coding Exercise\obj\Debug\net7.0\Ninety One Coding Exercise.pdb
+C:\Users\Nauti\Documents\NinetyOneCodingExercise\Ninety One Coding Exercise\obj\Debug\net7.0\Ninety One Coding Exercise.genruntimeconfig.cache
+C:\Users\Nauti\Documents\NinetyOneCodingExercise\Ninety One Coding Exercise\obj\Debug\net7.0\ref\Ninety One Coding Exercise.dll
