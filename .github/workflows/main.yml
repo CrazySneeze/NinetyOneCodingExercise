@@ -1,0 +1,25 @@
+name: Get Latest Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  get-latest-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Get latest release
+        id: get_release
+        run: |
+          echo "Fetching the latest release..."
+          latest_release=$(curl -s https://api.github.com/repos/${{ github.repository }}/releases/latest | jq -r '.tag_name')
+          echo "Latest release: $latest_release"
+          echo "::set-output name=latest_release::$latest_release"
+
+      - name: Print latest release
+        run: echo "The latest release is ${{ steps.get_release.outputs.latest_release }}"
