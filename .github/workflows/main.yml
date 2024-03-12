@@ -17,15 +17,15 @@ jobs:
         id: get_latest_tag
         run: echo ::set-output name=tag::$(git describe --tags --abbrev=0)
 
-      - name: Print latest release tag
-        run: |
-          echo "Latest release tag ${{ steps.get_latest_tag.outputs.tag }}"
-          ls -a
-
       - name: Clone repository 1
         uses: actions/checkout@v2
         with:
           repository: CrazySneeze/DnD-WebPage
+
+      - name: Print latest release tag
+        run: |
+          echo "Latest release tag ${{ steps.get_latest_tag.outputs.tag }}"
+          ls -a
 
       - name: Modify file in repository 1
         run: sed -i "s/This is a test file v.*\..*/This is a test file ${{ steps.get_latest_tag.outputs.tag }}/g" DnD-WebPage/test.txt
