@@ -57,12 +57,13 @@ jobs:
       - name: Create pull request for repository 1
         uses: peter-evans/create-pull-request@v3
         with:
+          path: test
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "Update Common Library version to ${{ steps.get_latest_tag.outputs.tag }}"
           title: "Update Common Library version"
           body: "Automated PR to update Common Library version to ${{ steps.get_latest_tag.outputs.tag }}"
-          branch: "update-common-library"
-          base: "main"
+          branch: "Update service common to ${{ steps.get_latest_tag.outputs.tag }}"
+          base: "master"
 
       # Repeat the above steps for repository 2 and repository 3 as needed.
 
