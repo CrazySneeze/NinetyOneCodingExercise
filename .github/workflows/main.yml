@@ -33,8 +33,7 @@ jobs:
           token: ${{ secrets.PAT }}
 
       - name: Print latest release tag
-        run: |
-          echo "Latest release tag ${{ steps.get_latest_tag.outputs.tag }}"
+        run: echo "Latest release tag ${{ steps.get_latest_tag.outputs.tag }}"
 
       - name: Modify file in repository 1
         run: sed -i "s/This is a test file/This is a test file WORKING${{ steps.get_latest_tag.outputs.tag }}/g" test/test.txt
