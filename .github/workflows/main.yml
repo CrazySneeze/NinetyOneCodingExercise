@@ -22,7 +22,6 @@ jobs:
           mkdir test
           git clone \
             --depth=1 \
-            --branch=main \
             https://CrazySneeze:${{ secrets.PAT }}@github.com/CrazySneeze/DnD-WebPage.git \
             test
 
