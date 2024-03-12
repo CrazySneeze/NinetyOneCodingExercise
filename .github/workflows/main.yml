@@ -33,7 +33,9 @@ jobs:
           token: ${{ secrets.PAT }}
 
       - name: Print latest release tag
-        run: echo "Latest release tag ${{ steps.get_latest_tag.outputs.tag }} $(git describe --tags --abbrev=0)"
+        run: |
+          echo "Latest release tag ${{ steps.get_latest_tag.outputs.tag }}"
+          echo $(git describe --tags --abbrev=0)
 
       - name: Modify file in repository 1
         run: sed -i "s/This is a test file/This is a test file WORKING${{ steps.get_latest_tag.outputs.tag }}/g" test/test.txt
