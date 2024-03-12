@@ -18,7 +18,9 @@ jobs:
         run: echo ::set-output name=tag::$(git describe --tags --abbrev=0)
 
       - name: Print latest release tag
-        run: echo "Latest release tag ${{ steps.get_latest_tag.outputs.tag }}"
+        run: |
+          echo "Latest release tag ${{ steps.get_latest_tag.outputs.tag }}"
+          ls -a
 
       - name: Clone repository 1
         uses: actions/checkout@v2
