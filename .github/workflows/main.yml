@@ -16,8 +16,6 @@ jobs:
       - name: Get latest release tag
         id: get_latest_tag
         run: |
-          ls -a
-          git describe --tags --abbrev=0
           echo ::set-output name=tag::$(git describe --tags --abbrev=0)
 
 #      - name: Clone repository 1
