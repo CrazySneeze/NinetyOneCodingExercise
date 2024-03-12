@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Get latest release tag
         id: get_latest_tag
@@ -27,7 +27,7 @@ jobs:
 #            test
 
       - name: Clone repository 1
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           repository: CrazySneeze/DnD-WebPage
           path: test
