@@ -1,31 +1,50 @@
-name: Get Latest Release
+name: Update Other Repositories
 
 on:
-  push:
-    branches:
-      - main
+  release:
+    types: [published]
 
 jobs:
-  get-latest-release:
+  update-repositories:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: checkout code 2
+      - name: Get latest release tag
+        id: get_latest_tag
+        run: echo ::set-output name=tag::$(git describe --tags --abbrev=0)
+
+      - name: Print latest release tag
+        run: echo "Latest release tag ${{ steps.get_latest_tag.outputs.tag }}"
+
+      - name: Clone repository 1
         uses: actions/checkout@v2
         with:
-          repository: CrazySneeze/NinetyOneCodingExercise
-          path: ''
+          repository: CrazySneeze/DnD-WebPage
+          path: 'test'
 
-      - name: Get latest release
-        id: get_release
+      - name: Modify file in repository 1
+        run: sed -i "s/This is a test file v.*\..*/This is a test file ${{ steps.get_latest_tag.outputs.tag }}/g" test/DnD-WebPage/test.txt
+
+      - name: Commit changes in repository 1
         run: |
-          echo "Fetching the latest release..."
-          latest_release=$(curl -s https://api.github.com/repos/${{ github.repository }}/releases/latest | jq -r '.tag_name')
-          echo "Latest release: $latest_release"
-          echo "::set-output name=latest_release::$latest_release"
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git add .
+          git commit -m "Update Common Library version to ${{ steps.get_latest_tag.outputs.tag }}"
+          git push
 
-      - name: Print latest release
-        run: echo "The latest release is ${{ steps.get_release.outputs.latest_release }}"
+      - name: Create pull request for repository 1
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "Update Common Library version to ${{ steps.get_latest_tag.outputs.tag }}"
+          title: "Update Common Library version"
+          body: "Automated PR to update Common Library version to ${{ steps.get_latest_tag.outputs.tag }}"
+          branch: "update-common-library"
+          base: "main"
+
+      # Repeat the above steps for repository 2 and repository 3 as needed.
+
