@@ -57,7 +57,7 @@ jobs:
       - name: Create pull request for repository 1
         run: |
           cd test
-          git pr create \
+          gh pr create \
             --body "Automated PR to update Common Library version to ${{ steps.get_latest_tag.outputs.tag }}" \
             --title "Update Common Library version" \
             --head "Update-to-${{ steps.get_latest_tag.outputs.tag }}" \
