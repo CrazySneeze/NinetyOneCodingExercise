@@ -17,13 +17,20 @@ jobs:
         id: get_latest_tag
         run: echo ::set-output name=tag::$(git describe --tags --abbrev=0)
 
+#      - name: Clone repository 1
+#        run: |
+#          mkdir test
+#          git clone \
+#            --depth=1 \
+#            https://CrazySneeze:${{ secrets.PAT }}@github.com/CrazySneeze/DnD-WebPage.git \
+#            test
+
       - name: Clone repository 1
-        run: |
-          mkdir test
-          git clone \
-            --depth=1 \
-            https://CrazySneeze:${{ secrets.PAT }}@github.com/CrazySneeze/DnD-WebPage.git \
-            test
+        uses: actions/checkout@v2
+        with:
+          repository: CrazySneeze/DnD-WebPage
+          path: test
+          token: ${{ secrets.PAT }}
 
       - name: Print latest release tag
         run: |
