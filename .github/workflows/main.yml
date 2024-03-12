@@ -1,8 +1,9 @@
 name: Update Other Repositories
 
 on:
-  release:
-    types: [published]
+  push:
+    branches:
+      - main
 
 jobs:
   update-repositories:
