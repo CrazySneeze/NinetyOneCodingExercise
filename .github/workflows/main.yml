@@ -26,16 +26,13 @@ jobs:
       - name: Print latest release tag
         run: |
           echo "Latest release tag ${{ steps.get_latest_tag.outputs.tag }}"
-          ls -a
-          cd test
-          ls -a
-          cd WebApplication1
-          ls -a
 
       - name: Modify file in repository 1
         run: sed -i "s/This is a test file v.*\..*/This is a test file ${{ steps.get_latest_tag.outputs.tag }}/g" test/test.txt
 
       - uses: actions/checkout@v3
+          with:
+            token: ${{ secrets.PAT }}
       - name: Commit changes in repository 1
         run: |
           cd test
