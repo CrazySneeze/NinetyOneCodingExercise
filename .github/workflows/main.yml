@@ -24,10 +24,9 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: CrazySneeze/DnD-WebPage
-          path: 'test'
 
       - name: Modify file in repository 1
-        run: sed -i "s/This is a test file v.*\..*/This is a test file ${{ steps.get_latest_tag.outputs.tag }}/g" /test/DnD-WebPage/test.txt
+        run: sed -i "s/This is a test file v.*\..*/This is a test file ${{ steps.get_latest_tag.outputs.tag }}/g" DnD-WebPage/test.txt
 
       - name: Commit changes in repository 1
         run: |
