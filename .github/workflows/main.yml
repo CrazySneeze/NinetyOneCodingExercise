@@ -35,9 +35,6 @@ jobs:
       - name: Modify file in repository 1
         run: sed -i "s/This is a test file v.*\..*/This is a test file ${{ steps.get_latest_tag.outputs.tag }}/g" test/test.txt
 
-      - uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.PAT }}
       - name: Commit changes in repository 1
         run: |
           ls -a
