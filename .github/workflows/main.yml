@@ -55,15 +55,23 @@ jobs:
           git push --set-upstream origin Update-to-${{ steps.get_latest_tag.outputs.tag }}
 
       - name: Create pull request for repository 1
-        uses: peter-evans/create-pull-request@v3
-        with:
-          path: test
-          token: ${{ secrets.PAT }}
-          commit-message: "Update Common Library version to ${{ steps.get_latest_tag.outputs.tag }}"
-          title: "Update Common Library version"
-          body: "Automated PR to update Common Library version to ${{ steps.get_latest_tag.outputs.tag }}"
-          branch: "Update-to-${{ steps.get_latest_tag.outputs.tag }}"
-          base: "master"
+        run: |
+          cd test
+          gh pr create \
+            --body "Automated PR to update Common Library version to ${{ steps.get_latest_tag.outputs.tag }}" \
+            --title "Update Common Library version" \
+            --head "Update-to-${{ steps.get_latest_tag.outputs.tag }}" \
+            --base "master"
+            
+        #uses: peter-evans/create-pull-request@v3
+        #with:
+        #  path: test
+        #  token: ${{ secrets.PAT }}
+        #  commit-message: "Update Common Library version to ${{ steps.get_latest_tag.outputs.tag }}"
+        #  title: "Update Common Library version"
+        #  body: "Automated PR to update Common Library version to ${{ steps.get_latest_tag.outputs.tag }}"
+        #  branch: "Update-to-${{ steps.get_latest_tag.outputs.tag }}"
+        #  base: "master"
 
       # Repeat the above steps for repository 2 and repository 3 as needed.
 
