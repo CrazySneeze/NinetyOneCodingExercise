@@ -58,7 +58,7 @@ jobs:
         uses: peter-evans/create-pull-request@v3
         with:
           path: test
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PAT }}
           commit-message: "Update Common Library version to ${{ steps.get_latest_tag.outputs.tag }}"
           title: "Update Common Library version"
           body: "Automated PR to update Common Library version to ${{ steps.get_latest_tag.outputs.tag }}"
