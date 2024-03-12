@@ -16,7 +16,7 @@ jobs:
       - name: checkout code 2
         uses: actions/checkout@v2
         with:
-          repository: 'https://github.com/CrazySneeze/NinetyOneCodingExercise'
+          repository: CrazySneeze/NinetyOneCodingExercise
           path: ''
 
       - name: Get latest release
