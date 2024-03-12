@@ -33,7 +33,7 @@ jobs:
           ls -a
 
       - name: Modify file in repository 1
-        run: sed -i "s/This is a test file v.*\..*/This is a test file ${{ steps.get_latest_tag.outputs.tag }}/g" /test/WebApplication1/test.txt
+        run: sed -i "s/This is a test file v.*\..*/This is a test file ${{ steps.get_latest_tag.outputs.tag }}/g" /test/test.txt
 
       - name: Commit changes in repository 1
         run: |
