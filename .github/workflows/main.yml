@@ -21,8 +21,8 @@ jobs:
       matrix:
         value: ${{fromJSON(needs.setup.outputs.matrix)}}
     steps:
-      uses: CrazySneeze/NinetyOneCodingExercise/.github/workflows/sub.yml@main
-      secrets:
-        a-token: ${{ secrets.PAT }}
-      with:
-        service: ${{ matrix.value }}
+      - name: test sub yml
+        uses: CrazySneeze/NinetyOneCodingExercise/.github/workflows/sub.yml@main
+        with:
+          service: ${{ matrix.value }}
+          a-token: ${{ secrets.PAT }}
