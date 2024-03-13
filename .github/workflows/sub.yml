@@ -1,0 +1,25 @@
+name: test sub call
+on:
+  workflow_call:
+    secrets:
+      a-token:
+        required: true
+    inputs:
+      service:
+        description: "A tag to update the service common to"
+        required: true
+        type: string
+
+jobs:
+  update_service_common:
+    runs-on: [ self-hosted, linux ]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Output values
+        run: |
+          echo ${{ service }}
+    
