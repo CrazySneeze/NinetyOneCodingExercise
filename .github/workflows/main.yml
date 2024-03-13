@@ -21,5 +21,8 @@ jobs:
       matrix:
         value: ${{fromJSON(needs.setup.outputs.matrix)}}
     steps:
-      - run: |
-          echo "${{ matrix.value }}"
+      uses: CrazySneeze/NinetyOneCodingExercise/.github/workflows/sub.yml@main
+      secrets:
+        a-token: ${{ secrets.PAT }}
+      with:
+        service: ${{ matrix.value }}
