@@ -1,25 +1,78 @@
-name: Test Github Actions Dynamic Matrix
+name: Update Other Repositories
+
 on:
-  workflow_dispatch:
-   
+  push:
+    branches:
+      - main
 
 jobs:
-  setup:
+  update-repositories:
     runs-on: ubuntu-latest
-    outputs:
-      matrix: ${{ steps.matrix.outputs.value }}
+
     steps:
-      - id: matrix
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-tags: true
+          fetch-depth: 0
+
+      - name: Get latest release tag
+        id: get_latest_tag
+        run: echo "tag=$(git describe --tags --abbrev=0)" >> $GITHUB_OUTPUT
+
+#      - name: Clone repository 1
+#        run: |
+#          mkdir test
+#          git clone \
+#            --depth=1 \
+#            https://CrazySneeze:${{ secrets.PAT }}@github.com/CrazySneeze/DnD-WebPage.git \
+#            test
+
+      - name: Clone repository 1
+        uses: actions/checkout@v4
+        with:
+          repository: CrazySneeze/DnD-WebPage
+          path: test
+          token: ${{ secrets.PAT }}
+
+      - name: Print latest release tag
         run: |
-          echo "value=[\"a\", \"b\", \"c\"]" >> $GITHUB_OUTPUT
-      - run: |
-          echo "${{ steps.matrix.outputs.value }}"
-  build:
-    needs: [ setup ]
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        value: ${{fromJSON(needs.setup.outputs.matrix)}}
-    steps:
-      - run: |
-          echo ${{ matrix.value }}
+          echo "Latest release tag ${{ steps.get_latest_tag.outputs.tag }}"
+          echo $(git describe --tags --abbrev=0)
+
+      - name: Modify file in repository 1
+        run: sed -i "s/This is a test file/This is a test file WORKING${{ steps.get_latest_tag.outputs.tag }}/g" test/test.txt
+
+      - name: Commit changes in repository 1
+        run: |
+          cd test
+          git checkout -b "Update-to-${{ steps.get_latest_tag.outputs.tag }}"
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git add .
+          git commit -m "Update Common Library version to ${{ steps.get_latest_tag.outputs.tag }}"
+          git remote set-url origin https://${{ secrets.PAT }}@github.com/CrazySneeze/DnD-WebPage.git
+          git push --set-upstream origin Update-to-${{ steps.get_latest_tag.outputs.tag }}
+
+      - name: Create pull request for repository 1
+        env:
+          GH_TOKEN: ${{ secrets.PAT }}
+        run: |
+          cd test
+          gh pr create \
+            --body "Automated PR to update Common Library version to ${{ steps.get_latest_tag.outputs.tag }}" \
+            --title "Update Common Library version" \
+            --head "Update-to-${{ steps.get_latest_tag.outputs.tag }}" \
+            --base "master"
+            
+        #uses: peter-evans/create-pull-request@v3
+        #with:
+        #  path: test
+        #  token: ${{ secrets.PAT }}
+        #  commit-message: "Update Common Library version to ${{ steps.get_latest_tag.outputs.tag }}"
+        #  title: "Update Common Library version"
+        #  body: "Automated PR to update Common Library version to ${{ steps.get_latest_tag.outputs.tag }}"
+        #  branch: "Update-to-${{ steps.get_latest_tag.outputs.tag }}"
+        #  base: "master"
+
+      # Repeat the above steps for repository 2 and repository 3 as needed.
