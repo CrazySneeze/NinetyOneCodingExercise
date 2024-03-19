@@ -3,6 +3,7 @@ name: Update Other Repositories
 on:
   release:
     types: [published]
+  workflow_dispatch:
 
 jobs:
   update-repositories:
