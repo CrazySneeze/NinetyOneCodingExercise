@@ -7,7 +7,7 @@ on:
 
 jobs:
   update-repositories:
-    runs-on: ubuntu-latest
+    runs-on: [ self-hosted, linux ]
 
     steps:
       - name: Checkout code
